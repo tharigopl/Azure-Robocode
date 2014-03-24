@@ -13,7 +13,7 @@ import org.hibernate.SessionFactory;
 import com.utd.robocode.dto.User;
 import com.utd.robocode.utils.DataStoreUtils;
 
-public class LoginRepository {
+public class LoginRepository extends Repository{
 
 	public StringBuilder domain = null;	
 	public User objUser = null;
