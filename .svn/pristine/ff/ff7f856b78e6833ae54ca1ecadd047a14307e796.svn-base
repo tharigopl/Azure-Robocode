@@ -1,0 +1,62 @@
+package com.utd.robocode.utils;
+
+import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
+public class DataStoreUtils {
+
+    private static Connection connection = null;  // For making the connection
+    private static Statement statement = null;    // For the SQL statement
+    private static ResultSet resultSet = null;    // For the result set, if applicable
+    
+	// db should be DBConnectionDomain1 as in configuration file for first db
+	// db should be DBConnectionDomain2 as in configuration file for second db
+    public static Connection getSingletonConnection(String db) throws Exception{
+    	if(connection == null){
+    		return new DataStoreUtils().createConnection(db);
+    	}else{
+    		return connection;
+    	}    	
+    }
+    
+    // Method used to execute the query
+    public static ResultSet executeQuery(String query) throws Exception{
+    	
+    	 // Use the connection to create the SQL statement.
+        statement = connection.createStatement();
+
+        // Execute the statement.
+        statement.execute(query);
+        
+        ResultSet result = statement.getResultSet();
+
+        // Provide a message when processing is complete.
+        System.out.println("Processing complete.");
+    	
+        return result;
+    }
+    
+    public Connection createConnection(String db){
+    	try{
+    		// Ensure the SQL Server driver class is available.
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Properties prop = new Properties();
+            prop.load(getClass().getResourceAsStream("configuration.properties"));
+            //prop.load(new FileReader(getClas"configuration.properties"));
+            String connectionString = "";
+            
+            connectionString = prop.getProperty(db);
+            
+            // Establish the connection.
+            connection = DriverManager.getConnection(connectionString);
+            return connection;
+    	}catch(Exception ex){
+    		ex.printStackTrace();
+    	}    	
+    	return null;
+    }
+}

@@ -1,0 +1,61 @@
+<% 
+
+if (pagex.equals("login")) 
+{
+%><%@ include file="pages/login.jsp"%><% 
+} 
+else if (pagex.equals("logout")) 
+{
+%><%@ include file="pages/logout.jsp"%><% 
+}
+else if (pagex.equals("dashboard")) 
+{
+%><%@ include file="pages/dashboard.jsp"%><% 
+}
+else if (pagex.equals("user_profile")) 
+{
+%><%@ include file="pages/user_profile.jsp"%><% 
+}
+else if (pagex.equals("settings")) 
+{
+%><%@ include file="pages/settings.jsp"%><% 
+}
+else if (pagex.equals("create_robot")) 
+{
+%><%@ include file="pages/create_robot.jsp"%><% 
+}
+else if (pagex.equals("create_robot2")) 
+{
+%><%@ include file="pages/create_robot2.jsp"%><% 
+}
+else if (pagex.equals("create_robot3")) 
+{
+%><%@ include file="pages/create_robot3.jsp"%><%
+}
+else if (pagex.equals("edit_robot")) 
+{
+%><%@ include file="pages/create_robot.jsp"%><%
+}
+else if (pagex.equals("my_robots")) 
+{
+%><%@ include file="pages/my_robots.jsp"%><%
+}
+else if (pagex.equals("view_sample_robots")) 
+{
+%><%@ include file="pages/view_sample_robots.jsp"%><%
+}
+else if (pagex.equals("analyze_my_robots")) 
+{
+%><%@ include file="pages/analyze_my_robots.jsp"%><%
+}
+else if (pagex.equals("robots_gallery")) 
+{
+%><%@ include file="pages/robots_gallery.jsp"%><%
+}
+else
+{
+%><%@ include file="pages/404page.jsp"%><%
+}
+
+
+%>

@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Settings</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Site Config
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                	<div id="msgdiv">
+                    <p>
+					<% if(msg_error.length() >0){ %>
+					<div align="center" class="errorMsg"><strong><%=msg_error%></strong></div>
+					<% } else if(msg_success_sess.length() >0) { %>
+					<div align="center" class="successMsg"><strong><%=msg_success_sess%></strong></div>
+					<% } %>
+					</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form id="settingsForm" name="settingsForm" role="form" method="post" action="">
+                            <div class="form-group">
+                                <label>Site Title:</label>
+                                <input id="sc_site_title" name="sc_site_title"  type="text" class="form-control" value="<?php $fieldval=false; if(isset($settingsEditRes)){ $fieldval=get_data($settingsEditRes[0]['sc_site_title']); } echo form_submit_update_textbox("sc_site_title",$fieldval,"POST"); ?>"/>
+                            </div>
+                            <input name="settingspostbk" type="hidden" id="settingspostbk" value="1" />
+                            <button type="submit" class="btn btn-default">Save</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
+                        </form>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                    
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<%
+//Clear Success Msg
+session.setAttribute("msg_success","");
+%>

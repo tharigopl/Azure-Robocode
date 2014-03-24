@@ -1,0 +1,2 @@
+DBConnectionDomain1=jdbc:sqlserver://j5ovh17i9u.database.windows.net:1433;database=deepakDBDomain2;user=meaazsqld1usr@j5ovh17i9u;password=Mpass808;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+DBConnectionDomain2=

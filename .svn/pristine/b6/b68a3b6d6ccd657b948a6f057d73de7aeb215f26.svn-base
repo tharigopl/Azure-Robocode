@@ -1,0 +1,130 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ include file="logincheck.jsp"%>
+<%@ include file="nocache.jsp"%>
+<% 
+String msg_error = "";
+String msg_success_sess = "";
+if((String) session.getAttribute("msg_success")!=null)
+{
+	msg_success_sess= (String) session.getAttribute("msg_success");
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboCode Online</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Page-Level Plugin CSS - Dashboard -->
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="css/plugins/timeline/timeline.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<%
+if(pagex.equals("login"))
+{
+%>
+<!--<div class="container">-->
+<%@ include file="actions.jsp" %>
+<!--</div>-->
+<%
+}else{
+%>
+<div id="wrapper">
+
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="?pg=dashboard">RoboCode</a>
+        </div>
+        <!-- /.navbar-header -->
+        
+        
+<ul class="nav navbar-top-links navbar-right">
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Welcome, <%=userx_sess%> !<i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="?pg=user_profile"><i class="fa fa-user fa-fw"></i>&nbsp;User Profile</a>
+                        </li>
+                        <li><a href="?pg=settings"><i class="fa fa-gear fa-fw"></i>&nbsp;Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="?pg=logout"><i class="fa fa-sign-out fa-fw"></i>&nbsp;Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        <!-- /.navbar-top-links -->
+
+    </nav>
+    <!-- /.navbar-static-top -->
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">             
+                <li>
+                    <a href="?pg=dashboard"><i class="fa fa-dashboard fa-fw"></i>&nbsp;Dashboard</a>
+                </li>
+                <li>
+                    <a href="?pg=create_robot"><i class="fa fa-edit fa-fw"></i>&nbsp;Create Robot</a>
+                </li>
+                <li>
+                    <a href="?pg=my_robots"><i class="fa fa-table fa-fw"></i>&nbsp;My Robots</a>
+                </li> 
+                <li>
+                    <a href="?pg=view_sample_robots"><i class="fa fa-table fa-fw"></i>&nbsp;View Sample Robots</a>
+                </li> 
+                <li>
+                    <a href="?pg=analyze_my_robots"><i class="fa fa-wrench fa-fw"></i>&nbsp;Analyze My Robots</a>
+                </li>
+                <li>
+                    <a href="?pg=robots_gallery"><i class="fa fa-bar-chart-o fa-fw"></i>&nbsp;Robots Gallery</a>
+                </li>     
+                
+            </ul>
+            <!-- /#side-menu -->
+        </div>
+        <!-- /.sidebar-collapse -->
+    </nav>
+    <!-- /.navbar-static-side -->
+
+<div id="page-wrapper">
+<%@ include file="actions.jsp" %> 
+</div>   
+    <!-- /#page-wrapper -->
+
+</div>
+    <!-- /#wrapper -->
+<%
+}
+%>    
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="js/sb-admin.js"></script>
+
+</body>
+</html>

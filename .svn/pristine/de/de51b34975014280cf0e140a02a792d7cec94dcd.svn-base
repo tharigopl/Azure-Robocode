@@ -1,0 +1,7 @@
+.errorMsg{
+	color:#FF0000;
+}
+.successMsg{
+	color:#339900;
+}
+

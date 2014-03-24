@@ -1,0 +1,17 @@
+package com.utd.robocode.repository;
+
+import com.utd.robocode.utils.DataStoreUtils;
+
+public class LoginRepository {
+
+	public LoginRepository() {
+		// TODO Auto-generated constructor stub
+	}
+	// Implement 
+	public void login(String domain){
+		
+		//DataStoreUtils.getSingletonConnection();
+		
+		
+	}
+}

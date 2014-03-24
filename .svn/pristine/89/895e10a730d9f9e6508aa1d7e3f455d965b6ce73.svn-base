@@ -1,0 +1,46 @@
+package com.utd.robocode.services;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import com.utd.robocode.dto.User;
+import com.utd.robocode.repository.LoginRepository;
+import com.utd.robocode.utils.DataStoreUtils;
+
+public class LoginService {
+	//private LoginRepository objLoginRepo = new LoginRepository();
+	
+	public void login(User objUser){
+		String domain = "";
+		if(objUser.getDomain_id().equalsIgnoreCase("1")){
+			domain = "DBConnectionDomain1";
+		}else{
+			domain = "DBConnectionDomain2";
+		}
+		
+		//objLoginRepo.login(domain);
+		try {
+			Connection conn = DataStoreUtils.getSingletonConnection(domain);
+			if(conn != null){
+				String query = "select * from users where user_name = '"+objUser.getUser_name()+"' and password = "
+						+ "'"+objUser.getPassword()+"';";
+				
+				 Statement statement = conn.createStatement();
+
+			        // Execute the statement.
+			        statement.execute(query);
+			        
+			        ResultSet result = statement.getResultSet();
+
+			        // Provide a message when processing is complete.
+			        System.out.println("Processing complete.");
+						        
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,25 @@
+<%
+
+String pagex=request.getParameter("pg");
+
+String userx_sess = (String) session.getAttribute("userx");
+
+if(pagex==null)
+{
+	pagex = "";
+	response.sendRedirect("?pg=login");
+}
+else
+{
+	if((userx_sess!=null) && (pagex.equals("login")==true))
+	{
+		response.sendRedirect("?pg=dashboard");
+	}
+	else if((userx_sess==null) && (pagex.equals("login")==false))
+	{
+		response.sendRedirect("?pg=login");
+	}
+	
+}
+
+%>

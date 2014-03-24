@@ -1,0 +1,2 @@
+DBConnectionDomain1=jdbc:sqlserver://py8guh8cjx.database.windows.net:1433;database=rosarioD1;user=test@py8guh8cjx;password=Tharigopla123;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+DBConnectionDomain2=jdbc:sqlserver://mr9185q62f.database.windows.net:1433;database=rosarioD2;user=test@mr9185q62f;password=Tharigopla123;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
