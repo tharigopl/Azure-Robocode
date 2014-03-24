@@ -37,7 +37,7 @@ public class LoginRepository extends Repository{
 				Session session = sessionFactory.openSession();
 				session.beginTransaction();
 				List<User> user = session.createQuery("from User where user_name ='" + objUser.getUser_name() + "'"
-						+ "and password='"+objUser.getPassword()+"'").list();
+						+ "and user_pwd='"+objUser.getPassword()+"'").list();
 				System.out.println(user.size());
 				
 				if(user.size()!=0)
