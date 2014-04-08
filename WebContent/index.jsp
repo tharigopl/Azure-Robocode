@@ -5,8 +5,9 @@
 <%
 
 if(request.getAttribute("msg_error") != null)
+{	
 	msg_error = request.getAttribute("msg_error").toString();
-//msg_error = request.getAttribute("msg_error").toString();
+}
 %>
 <div class="row" style="margin:0 !important">
   <div class="col-md-4 col-md-offset-4">

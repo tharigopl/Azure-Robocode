@@ -3,6 +3,14 @@
 <%@ include file="includes/logincheck.jsp"%>
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/common_top.jsp"%>
+<%@page import="com.utd.robocode.dto.Robots"%>
+<%
+Robots objRobot = new Robots();
+if(request.getAttribute("objCurrentRobot") != null)
+	objRobot = (Robots)request.getAttribute("objCurrentRobot");
+
+request.setAttribute("objCurrentRobot", objRobot);
+%>
 <div id="page-wrapper">
 	<div class="row">
     <div class="col-lg-12">
@@ -29,7 +37,7 @@
                         </p>
                         </div>
                         <div class="table-responsive">
-                            <form id="settingsForm" name="settingsForm" role="form" method="post" action="">
+                            <form id="settingsForm" name="settingsForm" role="form" method="post" action="accessRights">
               
                                 <table class="table table-bordered table-hover" border="1" style="width:600px;" align="center">
                               <tr>
@@ -38,36 +46,36 @@
                               <tr>
                                 <td bgcolor="#F9F9F9"><div align="center"><strong>Viewer</strong></div></td>
                                 <td><div align="center">
-                                  <select name="select" id="select">
-                                    <option>No Rights</option>
-                                    <option>Read</option>
-                                    <option>Create + Read</option>
-                                    <option>Create + Read + Update</option>
-                                    <option>Create + Read + Update + Delete</option>
+                                  <select name="viewer" id="select">
+                                    <option value="1">No Rights</option>
+                                    <option value="2">Read</option>
+                                    <option value="5">Create + Read</option>
+                                    <option value="3">Create + Read + Update</option>
+                                    <option value="4">Create + Read + Update + Delete</option>
                                   </select>
                                 </div></td>
                               </tr>
                               <tr>
                                 <td bgcolor="#F9F9F9"><div align="center"><strong>Developer</strong></div></td>
                                 <td><div align="center">
-                                  <select name="select2" id="select2">
-                                    <option>No Rights</option>
-                                    <option>Read</option>
-                                    <option>Create + Read</option>
-                                    <option>Create + Read + Update</option>
-                                    <option>Create + Read + Update + Delete</option>
+                                  <select name="developer" id="select2">
+                                   <option value="1">No Rights</option>
+                                    <option value="2">Read</option>
+                                    <option value="5">Create + Read</option>
+                                    <option value="3">Create + Read + Update</option>
+                                    <option value="4">Create + Read + Update + Delete</option>
                                   </select>
                                 </div></td>
                               </tr>
                               <tr>
                                 <td bgcolor="#F9F9F9"><div align="center"><strong>Manager</strong></div></td>
                                 <td><div align="center">
-                                  <select name="select3" id="select3">
-                                    <option>No Rights</option>
-                                    <option>Read</option>
-                                    <option>Create + Read</option>
-                                    <option>Create + Read + Update</option>
-                                    <option>Create + Read + Update + Delete</option>
+                                  <select name="manager" id="select3">
+                                    <option value="1">No Rights</option>
+                                    <option value="2">Read</option>
+                                    <option value="5">Create + Read</option>
+                                    <option value="3">Create + Read + Update</option>
+                                    <option value="4">Create + Read + Update + Delete</option>
                                   </select>
                                 </div></td>
                               </tr>
@@ -82,6 +90,9 @@
                                 <button type="submit" class="btn btn-success">Save</button>
                               </div>
                               <input name="postbk" type="hidden" id="postbk" value="1" />
+                              <input name="currentRobotName" type="hidden" id="postbk" value=<%=objRobot.getRobot_name()%> />
+								<input name="currentRobotDesc" type="hidden" id="postbk" value=<%=objRobot.getRobot_desc()%> />
+								<input name="currentRobotId" type="hidden" id="postbk" value=<%=objRobot.getRobot_id()%> />
                           </form>
                         </div>
                         <!-- /.table-responsive -->

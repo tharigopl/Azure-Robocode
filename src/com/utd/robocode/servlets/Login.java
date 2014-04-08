@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sun.xml.bind.v2.TODO;
-import com.utd.robocode.dto.User;
+import com.utd.robocode.dto.Users;
 import com.utd.robocode.services.LoginService;
 import com.utd.robocode.utils.DataStoreUtils;
 
@@ -35,16 +35,18 @@ public class Login extends HttpServlet {
 		String password = req.getParameter("password");
 		String domain = req.getParameter("domain");
 		
-		User objUser = new User();
+		Users objUser = new Users();
 		objUser.setUser_name(userName);
-		objUser.setPassword(password);
-		objUser.setDomain_id(domain);
+		objUser.setUser_pwd(password);
+		objUser.setUser_domain_id(domain);
 				
-		boolean result = new LoginService().isAValidUser(objUser);
+		objUser = new LoginService().isAValidUser(objUser);
 		HttpSession session = null;
-		if(result){
+		if(objUser != null){
 			session = req.getSession(true); 
 			session.setAttribute("userx",userName);
+			session.setAttribute("userObj", objUser);
+			session.setAttribute("domainx",domain);
 			resp.sendRedirect("dashboard.jsp");		
 		}else{
 			//TODO: Redirect to login page

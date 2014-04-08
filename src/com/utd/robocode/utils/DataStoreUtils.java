@@ -96,13 +96,13 @@ public class DataStoreUtils {
             //if(db.equalsIgnoreCase("DBConnectionDomain1")){
             	//return new Configuration().configure(new DataStoreUtils().getClass().getResource("hibernate.cfg.xml")).buildSessionFactory();
             	if(sessionFactoryForDomain1 == null){
-            		sessionFactoryForDomain1 = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+            		sessionFactoryForDomain1 = new Configuration().configure("hibernate1.cfg.xml").buildSessionFactory();
             	}
             	sessionFactories.put("DBConnectionDomain1", sessionFactoryForDomain1);
             //}else{
             	//return new Configuration().configure("hibernate1.cfg.xml").buildSessionFactory();            	
             	if(sessionFactoryForDomain2 == null){
-            		sessionFactoryForDomain2 = new Configuration().configure("hibernate1.cfg.xml").buildSessionFactory();
+            		sessionFactoryForDomain2 = new Configuration().configure("hibernate2.cfg.xml").buildSessionFactory();
             	}
             	sessionFactories.put("DBConnectionDomain2", sessionFactoryForDomain2);
             //}

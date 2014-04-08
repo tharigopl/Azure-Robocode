@@ -9,15 +9,11 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        
-        <!-- <property name="connection.url">jdbc:sqlserver://py8guh8cjx.database.windows.net:1433;database=rosarioD1;</property>
-        <property name="connection.username">test@py8guh8cjx</property>
-        <property name="connection.password">Tharigopla123</property>  -->
-
-		<property name="connection.url">jdbc:sqlserver://j5ovh17i9u.database.windows.net:1433;database=meaazsqld1;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;</property>
-        <property name="connection.username">meaazsqld1usr@j5ovh17i9u</property>
+      
+      	<property name="connection.url">jdbc:sqlserver://wn1ueyu9w2.database.windows.net:1433;database=meaazsqld2;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;</property>        
+        <property name="connection.username">meaazsqld2usr@wn1ueyu9w2</property>
         <property name="connection.password">Mpass808</property>
-        
+
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
 
@@ -35,7 +31,7 @@
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
-       
+
        <mapping resource="AccessRights.hbm.xml" /> 
        <mapping resource="Rights.hbm.xml" />
        <mapping resource="Robots.hbm.xml" />

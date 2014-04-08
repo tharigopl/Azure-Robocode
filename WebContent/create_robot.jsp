@@ -19,7 +19,13 @@
             <div class="row">
               <div id="msgdiv">
                 <p>
-                <% if(msg_error.length() >0){ %>
+                <% 
+                
+                if(request.getAttribute("msg_error") != null)
+                {	
+                	msg_error = request.getAttribute("msg_error").toString();
+                }
+                if(msg_error.length() >0){ %>
                 <div align="center" class="errorMsg"><strong><%=msg_error%></strong></div>
                 <% } else if(msg_success_sess.length() >0) { %>
                 <div align="center" class="successMsg"><strong><%=msg_success_sess%></strong></div>
@@ -27,7 +33,7 @@
                 </p>
               </div>
               <div class="col-lg-6">
-                <form id="settingsForm" name="settingsForm" role="form" method="post" action="">
+                <form id="settingsForm" name="settingsForm" role="form" method="post" action="createrobot">
                   <div class="form-group">
                     <label>Robot Name:</label>
                     <input id="robot_name" name="robot_name"  type="text" class="form-control" value=""/>

@@ -1,8 +1,16 @@
+<%@page import="com.utd.robocode.dto.Robots"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ include file="includes/nocache.jsp"%>
 <%@ include file="includes/logincheck.jsp"%>
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/common_top.jsp"%>
+<%
+Robots objRobot = new Robots();
+if(request.getAttribute("objCurrentRobot") != null)
+	objRobot = (Robots)request.getAttribute("objCurrentRobot");
+
+request.setAttribute("objCurrentRobot", objRobot);
+%>
 <div id="page-wrapper">
 	<style type="text/css" media="screen">
 
@@ -77,7 +85,7 @@
 						</p>
 						</div>
 						
-							<form id="editorForm" name="editorForm" role="form" method="post" action="">
+							<form id="editorForm" name="editorForm" role="form" method="post" action="createrobot2">
 								<div style="width:950px;" class="form-group">
 	
 	<pre id="editor">package com.test;
@@ -160,6 +168,8 @@
 								<button type="button" class="btn btn-success" onclick="editor_save();">Next</button>
 								</div>
 								<input name="postbk" type="hidden" id="postbk" value="1" />
+								<input name="currentRobotName" type="hidden" id="postbk" value=<%=objRobot.getRobot_name()%> />
+								<input name="currentRobotDesc" type="hidden" id="postbk" value=<%=objRobot.getRobot_desc()%> />
 							</form>
 						
 				</div>
@@ -173,3 +183,4 @@
   <!-- /#page-wrapper -->
 <%@ include file="includes/common_bottom.jsp"%>
 <%@ include file="includes/footer.jsp"%>
+

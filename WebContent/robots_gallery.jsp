@@ -5,26 +5,141 @@
 <%@ include file="includes/common_top.jsp"%>
 <div id="page-wrapper">
 	<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Robots Gallery</h1>
-    </div>
-    <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <div class="row">
-        <div class="col-lg-8">
-            <span style="font-size:18px">Coming Soon!</span>
-            <!-- /.panel -->
-            
-            <!-- /.panel -->
-            
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-8 -->
-        
-        <!-- /.col-lg-4 -->
-    </div>
-    <!-- /.row -->
+	    <div class="col-lg-12">
+	        <h1 class="page-header">Robots Gallery</h1>
+	    </div>
+	    <!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+	    <div class="col-lg-12">
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+	                Cross Domain List of Robots
+	            </div>
+	            <div class="panel-body">
+	                <div class="row">
+	                	<div id="msgdiv">
+	                    <p>
+		                <% if(msg_error.length() >0){ %>
+		                <div align="center" class="errorMsg"><strong><%=msg_error%></strong></div>
+		                <% } else if(msg_success_sess.length() >0) { %>
+		                <div align="center" class="successMsg"><strong><%=msg_success_sess%></strong></div>
+		                <% } %>
+		                </p>
+	                    </div>
+	                    <div class="col-lg-12">
+	                        <fieldset class="fieldset_custom">
+	                          <legend class="fieldset_custom">Domain-1</legend>
+	                            <table class="table table-striped table-bordered table-hover" style="margin-bottom:0px;">
+	                              <thead>
+	                                <tr>
+	                                  <th>Robot Name</th>
+	                                  <th>Description</th>
+	                                  <th>Ranking</th>
+	                                  <th>Created By</th>
+	                                  <th>Last Modified Date</th>
+	                                  <th>Last Modifed By</th>
+	                                  <th><img src="images/edit.png" width="20" height="20" /></th>
+	        						  <th><img src="images/view.png" width="20" height="20" /></th>
+	                                </tr>
+	                              </thead>
+	                              <tbody>
+	                                <tr>
+	                                  <td>Robo1</td>
+	                                  <td>my 1st robo</td>
+	                                  <td>3</td>
+	                                  <td>userabc</td>
+	                                  <td>3/28/2014</td>
+	                                  <td>userabc</td>
+	                                  <th><img src="images/edit.png" width="20" height="20" /></th>
+	        						  <th><img src="images/view.png" width="20" height="20" /></th>
+	                                </tr>
+	                                <tr>
+	                                  <td>Robo2</td>
+	                                  <td>my 2nd robo</td>
+	                                  <td>2</td>
+	                                  <td>userabc</td>
+	                                  <td>3/28/2014</td>
+	                                  <td><strong>&lt;me&gt;</strong></td>
+	                                  <th><img src="images/edit.png" width="20" height="20" /></th>
+	        						  <th><img src="images/view.png" width="20" height="20" /></th>
+	                                </tr>
+	                                <tr>
+	                                  <td>Robo3</td>
+	                                  <td>my 3rd robo</td>
+	                                  <td>1</td>
+	                                  <td>userxyz</td>
+	                                  <td>3/28/2014</td>
+	                                  <td>userxyz</td>
+	                                  <th><img src="images/disabled.png" width="20" height="20" /></th>
+	        						  <th><img src="images/disabled.png" width="20" height="20" /></th>
+	                                </tr>
+	                              </tbody>
+	                            </table>
+	                        </fieldset>
+	                        <br/>
+	                      <fieldset class="fieldset_custom">
+	                        <legend class="fieldset_custom">Domain-2</legend>
+	                            <table class="table table-striped table-bordered table-hover" style="margin-bottom:0px;">
+	                              <thead>
+	                                <tr>
+	                                  <th>Robot Name</th>
+	                                  <th>Description</th>
+	                                  <th>Ranking</th>
+	                                  <th>Created By</th>
+	                                  <th>Last Modified Date</th>
+	                                  <th>Last Modifed By</th>
+	                                  <th><img src="images/edit.png" width="20" height="20" /></th>
+	        						  <th><img src="images/view.png" width="20" height="20" /></th>
+	                                </tr>
+	                              </thead>
+	                              <tbody>
+	                                <tr>
+	                                  <td>Robo1</td>
+	                                  <td>my 1st robo</td>
+	                                  <td>3</td>
+	                                  <td>userdef</td>
+	                                  <td>3/28/2014</td>
+	                                  <td>userabc</td>
+	                                  <th><img src="images/disabled.png" width="20" height="20" /></th>
+	        						  <th><img src="images/view.png" width="20" height="20" /></th>                                  
+	                                </tr>
+	                                <tr>
+	                                  <td>Robo2</td>
+	                                  <td>my 2nd robo</td>
+	                                  <td>2</td>
+	                                  <td>userdef</td>
+	                                  <td>3/28/2014</td>
+	                                  <td><strong>&lt;me&gt;</strong></td>
+	                                  <th><img src="images/disabled.png" width="20" height="20" /></th>
+	        						  <th><img src="images/disabled.png" width="20" height="20" /></th>                                  
+	                                </tr>
+	                                <tr>
+	                                  <td>Robo3</td>
+	                                  <td>my 3rd robo</td>
+	                                  <td>1</td>
+	                                  <td>userdef</td>
+	                                  <td>3/28/2014</td>
+	                                  <td>userxyz</td>
+	                                  <th><img src="images/edit.png" width="20" height="20" /></th>
+	        						  <th><img src="images/view.png" width="20" height="20" /></th>                                  
+	                                </tr>
+	                              </tbody>
+	                            </table>
+	                        </fieldset>
+	                    </div>
+	                    <!-- /.col-lg-12 (nested) -->
+	                    
+	                </div>
+	                <!-- /.row (nested) -->
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+	        <!-- /.panel -->
+	    </div>
+	    <!-- /.col-lg-12 -->
+	</div>	
 </div>
   <!-- /#page-wrapper -->
 <%@ include file="includes/common_bottom.jsp"%>
