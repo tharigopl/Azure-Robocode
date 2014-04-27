@@ -3,6 +3,7 @@
 <%@ include file="includes/logincheck.jsp"%>
 <%@ include file="includes/header.jsp"%>
 <%@ include file="includes/common_top.jsp"%>
+<% import src.com.utd.robocode.servlet.* %>
 <div id="page-wrapper">
 	<div class="row">
 	    <div class="col-lg-12">
@@ -35,13 +36,36 @@
 	                                <th>Robot Name</th>
 	                                <th>Description</th>
 	                                <th>Ranking</th>
-	                                <th>Last Modified Date</th>
-	                                <th>Last Modifed By</th>
+	                                <th>modifiers</th>
 	                                <th><img src="images/edit.png" width="20" height="20" /></th>
 	        						<th><img src="images/delete.png" width="20" height="20" /></th>                                
 	                              	</tr>
 	                            </thead>
 	                            <tbody>
+	                            <%List<name> nm= src.com.utd.robocode.servlet.my_robots();
+	                            int i=1;
+	                            Iterator itr = nm.iterator();
+      							while(itr.hasNext()) {
+         							Object element = itr.next(); %>
+         							<tr><td><%System.out.print(element.getrobot_name);
+         							%>
+         							</td>
+									<td><%System.out.print(element.getrobot_desc);
+         							%>
+         							</td>
+									<td><%System.out.print(element.getrobot_ranking);
+         							%>
+         							</td>
+         							<td> modifier </td>
+         							 <th><img src="images/edit.png" width="20" height="20" /></th>
+	        						<th><img src="images/delete.png" width="20" height="20" /></th>
+	        						</tr>
+	        						
+         							<%
+      							
+      							}
+       							%>
+	                            /*
 	                              <tr>
 	                                <td>Robo1</td>
 	                                <td>my 1st robo</td>
@@ -51,6 +75,7 @@
 	                                <th><img src="images/edit.png" width="20" height="20" /></th>
 	        						<th><img src="images/delete.png" width="20" height="20" /></th>                                  
 	                              </tr>
+	                              
 	                              <tr>
 	                                <td>Robo2</td>
 	                                <td>my 2nd robo</td>
@@ -68,7 +93,7 @@
 	                                <td>userxyz</td>
 	                                <th><img src="images/edit.png" width="20" height="20" /></th>
 	        						<th><img src="images/delete.png" width="20" height="20" /></th>                                  
-	                              </tr>
+	                              </tr> */
 	                              </tbody>
 	                          </table> 
 	                    </div>

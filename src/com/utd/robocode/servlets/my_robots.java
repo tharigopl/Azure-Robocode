@@ -14,16 +14,18 @@ import javax.servlet.http.HttpSession;
 
 import com.sun.xml.bind.v2.TODO;
 import com.utd.robocode.dto.Users;
-import com.utd.robocode.services.LoginService;
+import com.utd.robocode.dto.Robots;
+import com.utd.robocode.services.myrobotservice;
 import com.utd.robocode.utils.DataStoreUtils;
 
 
 
+
 /**
- * Servlet implementation class Login
+ * Servlet implementation class my_robots
  */
-//@WebServlet("/login")
-public class Login extends HttpServlet {
+//@WebServlet("/my_robots")
+public class my_robots extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	@Override
@@ -31,29 +33,18 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String userName = req.getParameter("username");
-		String password = req.getParameter("password");
-		String domain = req.getParameter("domain");
 		
 		Users objUser = new Users();
-		objUser.setUser_name(userName);
-		objUser.setUser_pwd(password);
-		objUser.setUser_domain_id(domain);
+		objUser.getUser_name();
 				
-		objUser = new LoginService().isAValidUser(objUser);
+		List <result> result = new myrobotservice().robots1(objUser);
 		HttpSession session = null;
-		if(objUser != null){
-			session = req.getSession(true); 
-			session.setAttribute("userx",userName);
-			session.setAttribute("userObj", objUser);
-			session.setAttribute("domainx",domain);
-		
-
-			resp.sendRedirect("dashboard.jsp");		
+		if(result){
+			
 		}else{
 			//TODO: Redirect to login page
-			req.setAttribute("msg_error", "User credentials does not match!!! Try Again");
-			req.getRequestDispatcher("index.jsp").forward(req,resp);
+			req.setAttribute("msg_error", "No Robot!!!");
+			req.getRequestDispatcher("dashboard.jsp").forward(req,resp);
 		}
 		
 	}

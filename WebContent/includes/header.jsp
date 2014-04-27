@@ -24,5 +24,8 @@ if((String) session.getAttribute("msg_success")!=null)
     <!-- SB Admin CSS - Include with every page -->
     <link href="css/sb-admin.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+     
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
 </head>
 <body>

@@ -72,6 +72,11 @@ request.setAttribute("objCurrentRobot", objRobot);
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					Create your own Robot : Step-2
+                    <div style="float:right; margin:-5px;">
+                    <form>
+                    <button type="button" class="btn btn-info" onClick="do_compile();">Compile</button>
+                    </form>
+                    </div>
 				</div>
 				<div class="panel-body" style="padding:0px;">
 					
@@ -87,64 +92,63 @@ request.setAttribute("objCurrentRobot", objRobot);
 						
 							<form id="editorForm" name="editorForm" role="form" method="post" action="createrobot2">
 								<div style="width:950px;" class="form-group">
-	
-	<pre id="editor">package com.test;
-	import robocode.*;
-	//import java.awt.Color;
-	
-	// API help : http://robocode.sourceforge.net/docs/robocode/robocode/Robot.html
-	
-	/**
-	 * Test1 - a robot by (your name here)
-	 */
-	public class Test1 extends Robot
-	{
-		/**
-		 * run: Test1's default behavior
-		 */
-		public void run() {
-			// Initialization of the robot should be put here
-	
-			// After trying out your robot, try uncommenting the import at the top,
-			// and the next line:
-	
-			// setColors(Color.red,Color.blue,Color.green); // body,gun,radar
-	
-			// Robot main loop
-			while(true) {
-				// Replace the next 4 lines with any behavior you would like
-				ahead(100);
-				turnGunRight(360);
-				back(100);
-				turnGunRight(360);
-			}
-		}
-	
-		/**
-		 * onScannedRobot: What to do when you see another robot
-		 */
-		public void onScannedRobot(ScannedRobotEvent e) {
-			// Replace the next line with any behavior you would like
-			fire(1);
-		}
-	
-		/**
-		 * onHitByBullet: What to do when you're hit by a bullet
-		 */
-		public void onHitByBullet(HitByBulletEvent e) {
-			// Replace the next line with any behavior you would like
-			back(10);
-		}
-		
-		/**
-		 * onHitWall: What to do when you hit a wall
-		 */
-		public void onHitWall(HitWallEvent e) {
-			// Replace the next line with any behavior you would like
-			back(20);
-		}	
-	}
-	</pre>
+<pre id="editor">package <%=userx_sess%>;
+import robocode.*;
+//import java.awt.Color;
+
+// API help : http://robocode.sourceforge.net/docs/robocode/robocode/Robot.html
+
+/**
+ * Test1 - a robot by (your name here)
+ */
+public class Test1 extends Robot
+{
+    /**
+     * run: Test1's default behavior
+     */
+    public void run() {
+        // Initialization of the robot should be put here
+
+        // After trying out your robot, try uncommenting the import at the top,
+        // and the next line:
+
+        // setColors(Color.red,Color.blue,Color.green); // body,gun,radar
+
+        // Robot main loop
+        while(true) {
+            // Replace the next 4 lines with any behavior you would like
+            ahead(100);
+            turnGunRight(360);
+            back(100);
+            turnGunRight(360);
+        }
+    }
+
+    /**
+     * onScannedRobot: What to do when you see another robot
+     */
+    public void onScannedRobot(ScannedRobotEvent e) {
+        // Replace the next line with any behavior you would like
+        fire(1);
+    }
+
+    /**
+     * onHitByBullet: What to do when you're hit by a bullet
+     */
+    public void onHitByBullet(HitByBulletEvent e) {
+        // Replace the next line with any behavior you would like
+        back(10);
+    }
+    
+    /**
+     * onHitWall: What to do when you hit a wall
+     */
+    public void onHitWall(HitWallEvent e) {
+        // Replace the next line with any behavior you would like
+        back(20);
+    }	
+}
+</pre>
 	
 	
 	<script src="js/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -160,6 +164,31 @@ request.setAttribute("objCurrentRobot", objRobot);
 		document.getElementById("editorForm").submit();
 	}
 	</script>
+    <script type="text/javascript">
+	function do_compile()
+	{		
+		robocode_file_name = document.getElementById("currentRobotName").value;
+		robocode_file_content = document.getElementById("code_editor").value;
+		/* 	
+		$.post("misc/compile.jsp",{ robocode_file_name: robocode_file_name, robocode_file_content: robocode_file_content }, function( data ) 		{
+		  alert(data);
+		}); */
+		
+		var form = document.getElementById("editorForm");
+		form.action = "misc/compile.jsp";
+		form.submit();
+		// document.getElementById("editorForm").submit();
+		
+		/*$.ajax({
+			url: "misc/compile.jsp",
+			data: '',//data tobe  send to the server (optional)
+			type:'post', //either post or get
+			success:function(data){  //this function is called when the ajax function is successfully executed
+			alert(data) ;
+			}
+		});*/
+	}
+	</script>
 								  
 								   
 								</div>
@@ -168,8 +197,8 @@ request.setAttribute("objCurrentRobot", objRobot);
 								<button type="button" class="btn btn-success" onclick="editor_save();">Next</button>
 								</div>
 								<input name="postbk" type="hidden" id="postbk" value="1" />
-								<input name="currentRobotName" type="hidden" id="postbk" value=<%=objRobot.getRobot_name()%> />
-								<input name="currentRobotDesc" type="hidden" id="postbk" value=<%=objRobot.getRobot_desc()%> />
+								<input name="currentRobotName" type="hidden" id="currentRobotName" value="<%=objRobot.getRobot_name()%>" />
+								<input name="currentRobotDesc" type="hidden" id="currentRobotDesc" value="<%=objRobot.getRobot_desc()%>" />
 							</form>
 						
 				</div>
